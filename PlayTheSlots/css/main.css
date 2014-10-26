@@ -4,10 +4,42 @@
     margin: 5px;
 }
 #spinBtn {
-    width:50px;
-    height:50px;
-    margin-left:500px;
-
+    width:13px;
+    height:52px;
     position: absolute;
-    border:2px solid red;
+    border:1px solid red;
+    border-radius:6px;
+    margin:450px 0 0 318px;
+}
+#quitBtn {
+    width:9px;
+    height:48px;
+    position: absolute;
+    border:1px solid red;
+    border-radius:6px;
+    margin:452px 0 0 32px;
+}
+#resetBtn {
+    width:9px;
+    height:48px;
+    position: absolute;
+    border:1px solid red;
+    border-radius:6px;
+    margin:452px 0 0 90px;
+}
+#incBetBtn {
+    width:8px;
+    height:48px;
+    position: absolute;
+    border:1px solid red;
+    border-radius:6px;
+    margin:452px 0 0 148px;
+}
+#decBetBtn {
+    width:8px;
+    height:48px;
+    position: absolute;
+    border:1px solid red;
+    border-radius:6px;
+    margin:452px 0 0 205px;
 }

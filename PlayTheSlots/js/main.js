@@ -8,24 +8,28 @@
     
     function drawSPannel() {
         print.drawImage(sPannel, 0, 0, 405, 515, 0, 0, 405, 515);
-        print.font = "20pt Georgia";
+        print.font = "18pt Book Antiqua";
         print.fillStyle = "red";
-        print.fillText(playerMoney, 100, 276);
+        print.fillText(playerMoney, 58, 277);
+        print.fillText(playerBet, 188, 277)
+        print.fillText(winnings, 288, 277);
+        print.fillText(jackpot, 58, 332);
+        print.fillText(winRatio, 188, 332);
+        print.fillText("%", 240, 332)
+        print.fillText(turn, 58, 386);
+        print.fillText(winNumber, 116, 386);
+        print.fillText(lossNumber, 176, 386);
     }
 
     var theCanvas = document.getElementById('myCanvas').getContext('2d');
-    spinBtn = document.getElementById('spinBtn');
 
-    spinBtn.onclick = function (e) {
-        print.drawImage(sPannel, 0, 0, 405, 515, 0, 0, 405, 515);
-    };
 
     /// <reference path="jquery.js" />
     var playerMoney = 1000;
     var winnings = 0;
     var jackpot = 5000;
     var turn = 0;
-    var playerBet = 0;
+    var playerBet = 10;
     var winNumber = 0;
     var lossNumber = 0;
     var spinResult;
@@ -39,12 +43,11 @@
     var bells = 0;
     var sevens = 0;
     var blanks = 0;
-    var theCanvas = document.getElementById('myCanvas');
-    var print = theCanvas.getContext('2d');
 
     /* Utility function to show Player Stats */
     function showPlayerStats() {
         winRatio = winNumber / turn;
+        
         $("#jackpot").text("Jackpot: " + jackpot);
         $("#playerMoney").text("Player Money: " + playerMoney);
         $("#playerTurn").text("Turn: " + turn);
@@ -52,6 +55,18 @@
         $("#playerLosses").text("Losses: " + lossNumber);
         $("#playerWinRatio").text("Win Ratio: " + (winRatio * 100).toFixed(2) + "%");
 
+        //print.clearRect(0, 0, theCanvas.width, theCanvas.height)
+        print.drawImage(sPannel, 0, 0, 405, 515, 0, 0, 405, 515);
+
+        print.fillText(playerMoney, 58, 277);
+        print.fillText(playerBet, 188, 277)
+        print.fillText(winnings, 288, 277);
+        print.fillText(jackpot, 58, 332);
+        print.fillText((winRatio * 100).toFixed(2), 188, 332);
+        print.fillText("%", 240, 332)
+        print.fillText(turn, 58, 386);
+        print.fillText(winNumber, 116, 386);
+        print.fillText(lossNumber, 176, 386);
     }
 
     /* Utility function to reset all fruit tallies */
@@ -224,13 +239,17 @@
     }
 
     /* When the player clicks the reset button the game resets player stats */
-    $("#resetButton").click(function () {
+    $("#resetBtn").click(function () {
         resetAll();
         showPlayerStats();
     });
+    /*
+    $("#quitButton").click(function () {
 
+    });
+    */
     /* When the player clicks the spin button the game kicks off */
-    $("#spinButton").click(function () {
+    $("#spinBtn").click(function () {
         playerBet = $("div#betEntry>input").val();
 
         if (playerMoney == 0) {
