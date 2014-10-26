@@ -5,11 +5,15 @@
     var sPannel = new Image();
     sPannel.src = "img/sPannel.png";
     sPannel.onload = drawSPannel;
-
+    
     function drawSPannel() {
-        print.drawImage(sPannel, 0, 0, 403, 406, 0, 0, 403, 406);
+        print.drawImage(sPannel, 0, 0, 405, 515, 0, 0, 405, 515);
+        print.font = "20pt Georgia";
+        print.fillStyle = "red";
+        print.fillText(playerMoney, 100, 276);
     }
 }
+
 
 /// <reference path="jquery.js" />
 var playerMoney = 1000;
@@ -30,6 +34,8 @@ var bars = 0;
 var bells = 0;
 var sevens = 0;
 var blanks = 0;
+var theCanvas = document.getElementById('myCanvas');
+var print = theCanvas.getContext('2d');
 
 /* Utility function to show Player Stats */
 function showPlayerStats()
@@ -41,6 +47,7 @@ function showPlayerStats()
     $("#playerWins").text("Wins: " + winNumber);
     $("#playerLosses").text("Losses: " + lossNumber);
     $("#playerWinRatio").text("Win Ratio: " + (winRatio * 100).toFixed(2) + "%");
+    
 }
 
 /* Utility function to reset all fruit tallies */
@@ -225,7 +232,7 @@ $("#resetButton").click(function () {
 /* When the player clicks the spin button the game kicks off */
 $("#spinButton").click(function () {
     playerBet = $("div#betEntry>input").val();
-
+    
     if (playerMoney == 0)
     {
         if (confirm("You ran out of Money! \nDo you want to play again?")) {
@@ -250,5 +257,4 @@ $("#spinButton").click(function () {
     else {
         alert("Please enter a valid bet amount");
     }
-    
 });
