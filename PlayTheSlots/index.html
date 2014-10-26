@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<!--    "Play The Slots!"
+    Geri Kona
+    Last Modified by: Geri Kona
+    Date Last Modified: October 25th, 2014.
+    Revision History:
+    Revision        Date           Author       Description
+    1.0             23/09/2014     Geri Kona    Base slots structure.
+    
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Play The Slots</title>
+    <!-- CSS Section -->
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h1>Play The Slots!</h1>
+        <div>
+            <h2>Player Statistics</h2>
+            <hr />
+            <ul id="playerStats">
+                <li id="jackpot">Jackpot: 500</li>
+                <li id="playerMoney">Player Money: 1000</li>
+                <li id="playerTurn">Turn: 0</li>
+                <li id="playerWins">Wins: 0</li>
+                <li id="playerLosses">Losses: 0</li>
+                <li id="playerWinRatio">Win Ratio: 0%</li>
+            </ul>
+            <hr />
+        </div>
+
+        <div id="betEntry">
+
+            <p>Place Your Bet Here</p>
+            <input id="playerBet" name="points" value="10">
+            <hr />
+        </div>
+
+
+        <button id="spinButton">Spin!</button>
+        <button id="resetButton">Reset!</button>
+    </div>
+
+    <div id="result">
+        <h2>Spin Result</h2>
+        <hr />
+        <p></p>
+    </div>
+    <hr />
+    <div id="winOrLose">
+        <p></p>
+    </div>
+    <div style="margin-left:auto; margin-right:auto; width:405px; height:408px; border:2px solid #00ff21">
+    <canvas id="myCanvas" width="403" height="406" style="border:1px solid #000000;"></canvas>
+    </div>
+    <!-- JavaScript Section -->
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
