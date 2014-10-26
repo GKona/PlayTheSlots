@@ -66,9 +66,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\main.css" />
+    <Content Include="img\7s.jpg" />
+    <Content Include="img\bananas.png" />
+    <Content Include="img\bars.jpg" />
+    <Content Include="img\bells.jpg" />
+    <Content Include="img\cherries.jpg" />
+    <Content Include="img\grapes.jpg" />
+    <Content Include="img\oranges.jpg" />
     <Content Include="img\sPannel.png" />
     <Content Include="index.html" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\jqxmenu.js" />
     <Content Include="js\main.js" />
     <Content Include="Web.config" />
   </ItemGroup>

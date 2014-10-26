@@ -1,13 +1,53 @@
-﻿window.onload = function () {
+﻿/// <reference path="jqxmenu.js" />
+/// <reference path="jquery.js" />
+document.oncontextmenu = function () {
+    return false;
+}
+// !!!
+// Code segment below was taken here http://www.html5canvastutorials.com/tutorials/html5-canvas-image-loader/
+function loadImages(sources, callback) {
+    var images = {};
+    var loadedImages = 0;
+    var numImages = 0;
+    // get num of sources
+    for (var src in sources) {
+        numImages++;
+    }
+    for (var src in sources) {
+        images[src] = new Image();
+        images[src].onload = function () {
+            if (++loadedImages >= numImages) {
+                callback(images);
+            }
+        };
+        images[src].src = sources[src];
+    }
+}
+
+var sources = {
+    sevens: 'img/7s.jpg',
+    bananas: 'img/bananas.png',
+    bars: 'img/bars.jpg',
+    bells: 'img/bells.jpg',
+    cherries: 'img/cherries.jpg',
+    grapes: 'img/grapes.jpg',
+    oranges: 'img/oranges.jpg'
+};
+//Code segment above was taken from http://www.html5canvastutorials.com/tutorials/html5-canvas-image-loader/
+//!!!
+
+window.onload = function () {
     var theCanvas = document.getElementById('myCanvas');
     var print = theCanvas.getContext('2d');
+    var pr = theCanvas.getContext('2d');
 
     var sPannel = new Image();
     sPannel.src = "img/sPannel.png";
     sPannel.onload = drawSPannel;
     
+    //Draws slot machine pannels and text
     function drawSPannel() {
-        print.drawImage(sPannel, 0, 0, 405, 515, 0, 0, 405, 515);
+        print.drawImage(sPannel, 0, 0, 405, 515);
         print.font = "18pt Book Antiqua";
         print.fillStyle = "red";
         print.fillText(playerMoney, 58, 277);
@@ -21,15 +61,12 @@
         print.fillText(lossNumber, 176, 386);
     }
 
-    var theCanvas = document.getElementById('myCanvas').getContext('2d');
-
-
-    /// <reference path="jquery.js" />
+    //Declaration of all number tracking variables
     var playerMoney = 1000;
     var winnings = 0;
     var jackpot = 5000;
     var turn = 0;
-    var playerBet = 10;
+    var playerBet = 0;
     var winNumber = 0;
     var lossNumber = 0;
     var spinResult;
@@ -43,21 +80,22 @@
     var bells = 0;
     var sevens = 0;
     var blanks = 0;
+    var reel1 = 55;
+    var reel2 = 160;
+    var reel3 = 265;
 
     /* Utility function to show Player Stats */
     function showPlayerStats() {
         winRatio = winNumber / turn;
-        
+        /*
         $("#jackpot").text("Jackpot: " + jackpot);
         $("#playerMoney").text("Player Money: " + playerMoney);
         $("#playerTurn").text("Turn: " + turn);
         $("#playerWins").text("Wins: " + winNumber);
         $("#playerLosses").text("Losses: " + lossNumber);
         $("#playerWinRatio").text("Win Ratio: " + (winRatio * 100).toFixed(2) + "%");
-
-        //print.clearRect(0, 0, theCanvas.width, theCanvas.height)
-        print.drawImage(sPannel, 0, 0, 405, 515, 0, 0, 405, 515);
-
+        */
+        print.drawImage(sPannel, 0, 0, 405, 515);
         print.fillText(playerMoney, 58, 277);
         print.fillText(playerBet, 188, 277)
         print.fillText(winnings, 288, 277);
@@ -84,15 +122,15 @@
     /* Utility function to reset the player stats */
     function resetAll() {
         playerMoney = 1000;
+        playerBet = 0;
         winnings = 0;
         jackpot = 5000;
+        winRatio = 0;
         turn = 0;
         playerBet = 0;
         winNumber = 0;
         lossNumber = 0;
-        winRatio = 0;
     }
-
 
     /* Check to see if the player won the jackpot */
     function checkJackPot() {
@@ -109,7 +147,7 @@
     /* Utility function to show a win message and increase player money */
     function showWinMessage() {
         playerMoney += winnings;
-        $("div#winOrLose>p").text("You Won: $" + winnings);
+        //$("div#winOrLose>p").text("You Won: $" + winnings);
         resetFruitTally();
         checkJackPot();
     }
@@ -117,7 +155,7 @@
     /* Utility function to show a loss message and reduce player money */
     function showLossMessage() {
         playerMoney -= playerBet;
-        $("div#winOrLose>p").text("You Lost!");
+        //$("div#winOrLose>p").text("You Lost!");
         resetFruitTally();
     }
 
@@ -173,6 +211,18 @@
                     sevens++;
                     break;
             }
+            /*
+            if (spin = 0 ) {
+                reel1 = betline[spin];
+            }
+            else if (spin = 1 ) {
+                reel2 = betline[spin];
+            }
+            else if (spin = 2 ) {
+                reel3 = betline[spin];
+            }
+            */
+                
         }
         return betLine;
     }
@@ -234,23 +284,78 @@
         else {
             lossNumber++;
             showLossMessage();
+            winnings = 0;
         }
-
     }
-
+    
+    function reelImgs(reel, reel1) {
+        switch (reel) {
+            case "Seven":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.sevens, reel1, 145, 85, 75);
+                });
+                break;
+            case "Grapes":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.grapes, reel1, 145, 85, 75);
+                });
+                break;
+            case "Banana":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.bananas, reel1, 145, 85, 75);
+                });
+                break;
+            case "Orange":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.oranges, reel1, 145, 85, 75);
+                });
+                break;
+            case "Cherry":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.cherries, reel1, 145, 85, 75);
+                });
+                break;
+            case "Bar":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.bars, reel1, 145, 85, 75);
+                });
+                break;
+            case "Bell":
+                loadImages(sources, function (images) {
+                    print.drawImage(images.bells, reel1, 145, 85, 75);
+                });
+                break;
+            default:
+                loadImages(sources, function (images) {
+                    print.drawImage(images.bells, reel1, 145, 85, 75);
+                });
+                break;
+        }
+    }
+    
     /* When the player clicks the reset button the game resets player stats */
     $("#resetBtn").click(function () {
         resetAll();
         showPlayerStats();
     });
-    /*
-    $("#quitButton").click(function () {
+    
+    $("#quitBtn").click(function () {
 
     });
-    */
+
+    $("#incBetBtn").click(function () {
+        if (playerBet < playerMoney) { playerBet += 10;}
+        showPlayerStats();
+    });
+
+    $("#decBetBtn").click(function () {
+        if (playerBet > 0) { playerBet -= 10; }
+        showPlayerStats();
+    });
+
     /* When the player clicks the spin button the game kicks off */
     $("#spinBtn").click(function () {
-        playerBet = $("div#betEntry>input").val();
+        //playerBet = $("div#betEntry>input").val();
 
         if (playerMoney == 0) {
             if (confirm("You ran out of Money! \nDo you want to play again?")) {
@@ -266,8 +371,11 @@
         }
         else if (playerBet <= playerMoney) {
             spinResult = Reels();
+            reelImgs(spinResult[0], reel1);
+            reelImgs(spinResult[1], reel2);
+            reelImgs(spinResult[2], reel3);
             fruits = spinResult[0] + " - " + spinResult[1] + " - " + spinResult[2];
-            $("div#result>p").text(fruits);
+            //$("div#result>p").text(fruits);
             determineWinnings();
             turn++;
             showPlayerStats();

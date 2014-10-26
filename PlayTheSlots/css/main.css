@@ -7,39 +7,88 @@
     width:13px;
     height:52px;
     position: absolute;
-    border:1px solid red;
     border-radius:6px;
-    margin:450px 0 0 318px;
+    margin:451px 0 0 319px;
 }
+
+#spinBtn:hover {
+    width:14px;
+    height:54px;
+    position: absolute;
+    border-radius:8px;
+    margin:450px 0 0 318px;
+    background-color:aquamarine;
+    opacity:0.1;
+}
+
 #quitBtn {
     width:9px;
     height:48px;
     position: absolute;
-    border:1px solid red;
     border-radius:6px;
-    margin:452px 0 0 32px;
+    margin:454px 0 0 34px;
 }
+
+#quitBtn:hover {
+    width:9px;
+    height:48px;
+    position: absolute;
+    border-radius:8px;
+    margin:453px 0 0 33px;
+    background-color:aquamarine;
+    opacity:0.1;
+}
+
 #resetBtn {
     width:9px;
     height:48px;
     position: absolute;
-    border:1px solid red;
     border-radius:6px;
-    margin:452px 0 0 90px;
+    margin:453px 0 0 91px;
 }
+
+#resetBtn:hover {
+    width:9px;
+    height:48px;
+    position: absolute;
+    border-radius:8px;
+    margin:453px 0 0 91px;
+    background-color:aquamarine;
+    opacity:0.1;
+}
+
 #incBetBtn {
     width:8px;
     height:48px;
     position: absolute;
-    border:1px solid red;
     border-radius:6px;
-    margin:452px 0 0 148px;
+    margin:453.5px 0 0 149px;
 }
+
+#incBetBtn:hover {
+    width:8px;
+    height:48px;
+    position: absolute;
+    border-radius:8px;
+    margin:453.5px 0 0 149px;
+    background-color:aquamarine;
+    opacity:0.1;
+}
+
 #decBetBtn {
     width:8px;
     height:48px;
     position: absolute;
-    border:1px solid red;
     border-radius:6px;
-    margin:452px 0 0 205px;
+    margin:453.5px 0 0 206px;
+}
+
+#decBetBtn:hover {
+    width:8px;
+    height:48px;
+    position: absolute;
+    border-radius:6px;
+    margin:453.5px 0 0 206px;
+    background-color:aquamarine;
+    opacity:0.1;
 }
