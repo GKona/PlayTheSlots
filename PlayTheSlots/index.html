@@ -40,7 +40,7 @@
 
             <button id="spinButton">Spin!</button>
             <button id="resetButton">Reset!</button>
-        </div>  
+        </div>
         <div id="result">
             <h2>Spin Result</h2>
             <hr />
@@ -51,7 +51,7 @@
             <p></p>
         </div>
         -->
-        <div style="margin-left:auto; margin-right:auto; width:408px; height:517px; border:5px inset #d3cf1d;">
+        <div style="margin-left:auto; margin-right:auto; width:408px; height:517px; border:5px inset #d3cf1d; margin-bottom:25px;">
             <menu id="spinBtn"></menu>
             <menu id="quitBtn"></menu>
             <menu id="resetBtn"></menu>
@@ -59,6 +59,10 @@
             <menu id="decBetBtn"></menu>
             <canvas id="myCanvas" width="406" height="515" style="border:1px solid #000000;"></canvas>
         </div>
+        <script>
+            var spinSnd = new Audio();
+            spinSnd.src = "spin.mp3";
+        </script>
         <!-- JavaScript Section -->
         <script src="js/jquery.js"></script>
         <script src="js/jqxmenu.js"></script>

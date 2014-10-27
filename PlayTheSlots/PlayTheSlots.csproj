@@ -70,19 +70,30 @@
     <Content Include="img\bananas.png" />
     <Content Include="img\bars.jpg" />
     <Content Include="img\bells.jpg" />
+    <Content Include="img\blank.jpg" />
     <Content Include="img\cherries.jpg" />
     <Content Include="img\grapes.jpg" />
     <Content Include="img\oranges.jpg" />
+    <Content Include="img\Q.png" />
     <Content Include="img\sPannel.png" />
+    <Content Include="img\timer1.png" />
+    <Content Include="img\timer2.png" />
     <Content Include="index.html" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jqxmenu.js" />
     <Content Include="js\main.js" />
+    <Content Include="sounds\coin.wav" />
+    <Content Include="sounds\Jackpot.wav" />
+    <Content Include="sounds\lose.wav" />
+    <Content Include="sounds\quit.wav" />
+    <Content Include="sounds\spin.wav" />
+    <Content Include="sounds\win.wav" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -92,3 +92,6 @@
     background-color:aquamarine;
     opacity:0.1;
 }
+li {
+    list-style-type:none;
+}
