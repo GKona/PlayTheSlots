@@ -85,7 +85,10 @@
     <Content Include="sounds\Jackpot.wav" />
     <Content Include="sounds\lose.wav" />
     <Content Include="sounds\quit.wav" />
+    <Content Include="sounds\reset.wav" />
     <Content Include="sounds\spin.wav" />
+    <Content Include="sounds\start.wav" />
+    <Content Include="sounds\tick.wav" />
     <Content Include="sounds\win.wav" />
     <Content Include="Web.config" />
   </ItemGroup>

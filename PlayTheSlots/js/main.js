@@ -54,6 +54,7 @@ window.onload = function () {
     
     // Draws slot machine pannels and text
     function drawSPannel() {
+        startSnd.play();
         print.drawImage(sPannel, 0, 0, 405, 515);
         loadImages(sources, function (images) {
             print.drawImage(images.qReel, 60, 145, 75, 75);
@@ -103,6 +104,9 @@ window.onload = function () {
     var coinSnd = new Audio("sounds/coin.wav");
     var jackpotSnd = new Audio("sounds/jackpot.wav");
     var quitSnd = new Audio("sounds/quit.wav");
+    var startSnd = new Audio("sounds/start.wav");
+    var resetSnd = new Audio("sounds/reset.wav");
+    var tickSnd = new Audio("sounds/tick.wav");
     
     // Utility function to show Player Stats 
     function showPlayerStats() {
@@ -438,6 +442,8 @@ window.onload = function () {
 
     // Event handler for when the player clicks the reset button the game resets player stats 
     $("#resetBtn").click(function () {
+        resetSnd.currentTime = 0;
+        resetSnd.play();
         resetAll();
         retainReel()
         showPlayerStats();
@@ -445,6 +451,8 @@ window.onload = function () {
     
     // Event handler for when the player clicks the quit button the game asks for fonfirmation and then closes
     $("#quitBtn").click(function () {
+        tickSnd.currentTime = 0;
+        tickSnd.play();
         if (confirm("Are you sure you want to leave the casino?")) {
             quitSnd.currentTime = 0;
             quitSnd.play();
@@ -476,6 +484,8 @@ window.onload = function () {
     $("#spinBtn").click(function () {
         //playerBet = $("div#betEntry>input").val();
         if (playerBet == 0) {
+            tickSnd.currentTime = 0;
+            tickSnd.play();
             alert("You must first place a bet in order to spin.");
         }
         else {
