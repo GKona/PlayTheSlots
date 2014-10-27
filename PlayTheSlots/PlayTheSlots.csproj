@@ -80,7 +80,6 @@
     <Content Include="img\timer2.png" />
     <Content Include="index.html" />
     <Content Include="js\jquery.js" />
-    <Content Include="js\jqxmenu.js" />
     <Content Include="js\main.js" />
     <Content Include="sounds\coin.wav" />
     <Content Include="sounds\Jackpot.wav" />
